@@ -41,6 +41,7 @@ public class SStudent {
 
         public Student remove(int index){
             Student student = studentList.remove(index);
+            reset(index);
             return student;
         }
 
@@ -58,6 +59,12 @@ public class SStudent {
 
         public void clearList(){
             studentList.clear();
+        }
+
+        private void reset(int i){
+            for (int j = i; j < studentList.size(); j++) {
+            studentList.get(j).setId(j);
+            }
         }
 
     }

@@ -19,6 +19,7 @@ public class FormEdit extends AppCompatActivity {
     private EditText phoneText;
     private EditText mailText;
     private Student student;
+    private int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
