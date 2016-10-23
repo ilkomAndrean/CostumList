@@ -13,23 +13,23 @@ import android.widget.ListView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
-public class FormStudent extends AppCompatActivity {
+public class FormTeacher extends AppCompatActivity {
     EditText text1, text2, text3, text4, text5;
-    ArrayList<Student> StudentList;
+    ArrayList<Teacher> TeacherList;
     FloatingActionButton Save, cancel;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_student);
-        StudentList = StudentActivity.StudentList;
+        setContentView(R.layout.activity_form_teacher);
+        TeacherList = TeacherActivity.TeacherList;
         text1 = (EditText) findViewById(R.id.editNo);
-        text2 = (EditText) findViewById(R.id.editNoreg);
+        text2 = (EditText) findViewById(R.id.editNip);
         text3 = (EditText) findViewById(R.id.editNama);
         text4 = (EditText) findViewById(R.id.editMail);
         text5 = (EditText) findViewById(R.id.editPhone);
-        int auto = StudentList.size()+1;
+        int auto = TeacherList.size()+1;
         text1.setText(String.valueOf(auto));
         Save = (FloatingActionButton)findViewById(R.id.save);
         cancel = (FloatingActionButton)findViewById(R.id.batal);
@@ -55,13 +55,13 @@ public class FormStudent extends AppCompatActivity {
         String getInput3 = text3.getText().toString();
         String getInput4 = text4.getText().toString();
         String getInput5 = text5.getText().toString();
-        Student student = new Student(StudentList.size()+1, getInput2, getInput3, getInput4, getInput5);
-        StudentList.add(student);
+        Teacher Teacher = new Teacher(TeacherList.size()+1, getInput2, getInput3, getInput4, getInput5);
+        TeacherList.add(Teacher);
         finish();
 
         Toast.makeText(getApplicationContext(), "Berhasil Ditambahkan", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(getApplicationContext(), StudentActivity.class);
+        Intent i = new Intent(getApplicationContext(), TeacherActivity.class);
 
         startActivity(i);
-}
+    }
 }

@@ -10,17 +10,17 @@ import java.util.ArrayList;
 /**
  * Created by xiiip on 10/21/2016.
  */
-public class Student implements Serializable {
-    static ArrayList<Student> StudentList;
+public class Teacher implements Serializable {
+    static ArrayList<Student> Teacherlist;
     private int id;
-    private String Noreg;
+    private String Nip;
     private String Nama;
     private String Mail;
     private String Phone;
 
-    public Student(int id, String Noreg, String Nama, String Mail, String Phone){
+    public Teacher(int id, String Nip, String Nama, String Mail, String Phone){
         this.id = id;
-        this.Noreg = Noreg;
+        this.Nip = Nip;
         this.Nama = Nama;
         this.Mail = Mail;
         this.Phone = Phone;
@@ -34,12 +34,12 @@ public class Student implements Serializable {
         this.id = id;
     }
 
-    public String getNoreg() {
-        return Noreg;
+    public String getNip() {
+        return Nip;
     }
 
-    public void setNoreg(String noreg) {
-        Noreg = noreg;
+    public void setNip(String Nip) {
+        Nip = Nip;
     }
 
     public String getNama() {

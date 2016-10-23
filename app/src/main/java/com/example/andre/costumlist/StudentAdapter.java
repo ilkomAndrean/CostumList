@@ -17,7 +17,9 @@ public class StudentAdapter extends ArrayAdapter<Student> {
             super(context, 0, studentList);
         }
 
-        @Override
+
+
+    @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             Student studentList = getItem(position);
             if (convertView == null) {
@@ -30,7 +32,7 @@ public class StudentAdapter extends ArrayAdapter<Student> {
             TextView tvPhone = (TextView) convertView.findViewById(R.id.phone);
             tvNo.setText(studentList.getId() + "");
             tvNoreg.setText(studentList.getNoreg());
-            tvName.setText(studentList.getName());
+            tvName.setText(studentList.getNama());
             tvMail.setText(studentList.getMail());
             tvPhone.setText(studentList.getPhone());
             return convertView;

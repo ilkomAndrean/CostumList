@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class FormEdit extends AppCompatActivity {
+public class FormEditTeacher extends AppCompatActivity {
 
-    EditText editNo, editNoreg, editNama, editMail, editPhone;
-    static ArrayList<Student> StudentList;
+    EditText editNo, editNip, editNama, editMail, editPhone;
+    static ArrayList<Teacher> TeacherList;
     FloatingActionButton Save, cancel;
     private int position;
     ListView listView;
@@ -25,10 +25,10 @@ public class FormEdit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_edit);
-        StudentList = StudentActivity.StudentList;
+        setContentView(R.layout.activity_form_edit_teacher);
+        TeacherList = TeacherActivity.TeacherList;
         editNo = (EditText) findViewById(R.id.editNo);
-        editNoreg = (EditText) findViewById(R.id.editNoreg);
+        editNip = (EditText) findViewById(R.id.editNip);
         editNama = (EditText) findViewById(R.id.editNama);
         editMail = (EditText) findViewById(R.id.editMail);
         editPhone = (EditText) findViewById(R.id.editPhone);
@@ -36,12 +36,12 @@ public class FormEdit extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         cancel = (FloatingActionButton)findViewById(R.id.batal);
 
-        Student studentIsi = (Student) getIntent().getSerializableExtra("StudentListItem");
-        editNo.setText(String.valueOf(studentIsi.getId()));
-        editNoreg.setText(studentIsi.getNoreg());
-        editNama.setText(studentIsi.getNama());
-        editMail.setText(studentIsi.getMail());
-        editPhone.setText(studentIsi.getPhone());
+        Teacher TeacherIsi = (Teacher) getIntent().getSerializableExtra("TeacherListItem");
+        editNo.setText(String.valueOf(TeacherIsi.getId()));
+        editNip.setText(TeacherIsi.getNip());
+        editNama.setText(TeacherIsi.getNama());
+        editMail.setText(TeacherIsi.getMail());
+        editPhone.setText(TeacherIsi.getPhone());
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,16 +59,16 @@ public class FormEdit extends AppCompatActivity {
     public void edit(){
 
         int getInput1 = Integer.parseInt(editNo.getText().toString());
-        String getInput2 = editNoreg.getText().toString();
+        String getInput2 = editNip.getText().toString();
         String getInput3 = editNama.getText().toString();
         String getInput4 = editMail.getText().toString();
         String getInput5 = editPhone.getText().toString();
-        Student student = new Student(getInput1, getInput2, getInput3, getInput4, getInput5);
-        StudentList.set(position, student);
+        Teacher Teacher = new Teacher(getInput1, getInput2, getInput3, getInput4, getInput5);
+        TeacherList.set(position, Teacher);
         finish();
 
         Toast.makeText(getApplicationContext(), "Berhasil Diedit", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(getApplicationContext(), StudentActivity.class);
+        Intent i = new Intent(getApplicationContext(), TeacherActivity.class);
 
         startActivity(i);
     }
@@ -83,13 +83,13 @@ public class FormEdit extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.deleteItem:
-                for(int l = position+1; l < StudentList.size(); l++){
-                    StudentList.get(position+l).setId(l);
+                for(int l = position+1; l < TeacherList.size(); l++){
+                    TeacherList.get(position+l).setId(l);
                 }
                 position = getIntent().getIntExtra("position", 0);
-                StudentList.remove(position);
+                TeacherList.remove(position);
                 Toast.makeText(getApplicationContext(), "Berhasil Dihapus", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(),StudentActivity.class);
+                Intent i = new Intent(getApplicationContext(),TeacherActivity.class);
 
                 startActivity(i);
 

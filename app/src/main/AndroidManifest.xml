@@ -19,7 +19,10 @@
         <activity android:name=".StudentAdapter" />
         <activity android:name=".TeacherActivity" />
         <activity android:name=".FormStudent" />
-        <activity android:name=".FormEdit"></activity>
+        <activity android:name=".FormEdit" />
+        <activity android:name=".TeacherAdapter" />
+        <activity android:name=".FormTeacher" />
+        <activity android:name=".FormEditTeacher"></activity>
     </application>
 
 </manifest>

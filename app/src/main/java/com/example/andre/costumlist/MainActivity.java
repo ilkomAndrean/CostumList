@@ -16,7 +16,15 @@ public class MainActivity extends AppCompatActivity {
         tvSiswa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a = new Intent(getApplicationContext(),StudentActivity.class );
+                Intent a = new Intent(getApplicationContext(), StudentActivity.class);
+                startActivity(a);
+            }
+        });
+        TextView tvGuru  = (TextView) findViewById(R.id.guru);
+        tvGuru.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(getApplicationContext(),TeacherActivity.class );
                 startActivity(a);
             }
         });
